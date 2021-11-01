@@ -1,13 +1,10 @@
-package com.example.proyecto.ui.home
+package com.example.proyecto.ui.tienda
 
-import android.widget.Adapter
-import android.widget.AdapterView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.RecyclerView
 
-class HomeViewModel : ViewModel() {
+class TiendaViewModel : ViewModel() {
 
   private val _text = MutableLiveData<String>().apply {
     value = "This is home Fragment"

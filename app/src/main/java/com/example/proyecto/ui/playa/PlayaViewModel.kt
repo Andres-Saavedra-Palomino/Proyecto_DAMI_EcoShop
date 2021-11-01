@@ -1,13 +1,13 @@
-package com.example.proyecto.ui.dashboard
+package com.example.proyecto.ui.playa
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class PlayaViewModel : ViewModel() {
 
   private val _text = MutableLiveData<String>().apply {
-    value = "This is dashboard Fragment"
+    value = "Playa works!"
   }
   val text: LiveData<String> = _text
 }

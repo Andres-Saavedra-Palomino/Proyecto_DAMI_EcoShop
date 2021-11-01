@@ -3,29 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_tienda">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.proyecto.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_tienda"
+        android:name="com.example.proyecto.ui.tienda.TiendaFragment"
+        android:label="@string/title_tienda"
+        tools:layout="@layout/fragment_tienda" />
 
     <fragment
         android:id="@+id/navigation_buscar"
         android:name="com.example.proyecto.ui.buscar.BuscarFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_buscar"
         tools:layout="@layout/fragment_buscar" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.proyecto.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_playa"
+        android:name="com.example.proyecto.ui.playa.PlayaFragment"
+        android:label="@string/title_playa"
+        tools:layout="@layout/fragment_playa" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.proyecto.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_carrito"
+        android:name="com.example.proyecto.ui.carrito.CarritoFragment"
+        android:label="@string/title_carrito"
+        tools:layout="@layout/fragment_carrito" />
+
+    <fragment
+        android:id="@+id/navigation_usuario"
+        android:name="com.example.proyecto.ui.cuenta.UsuarioFragment"
+        android:label="@string/title_usuario"
+        tools:layout="@layout/fragment_usuario" />
 </navigation>

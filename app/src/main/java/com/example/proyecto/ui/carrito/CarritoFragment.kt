@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.dashboard
+package com.example.proyecto.ui.carrito
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.proyecto.R
-import com.example.proyecto.databinding.FragmentDashboardBinding
+import com.example.proyecto.databinding.FragmentCarritoBinding
 
-class DashboardFragment : Fragment() {
+class CarritoFragment : Fragment() {
 
-  private lateinit var dashboardViewModel: DashboardViewModel
-  private var _binding: FragmentDashboardBinding? = null
+  private lateinit var carritoViewModel: CarritoViewModel
+  private var _binding: FragmentCarritoBinding? = null
 
   // This property is only valid between onCreateView and
   // onDestroyView.
@@ -25,15 +24,14 @@ class DashboardFragment : Fragment() {
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    dashboardViewModel =
-      ViewModelProvider(this).get(DashboardViewModel::class.java)
+    carritoViewModel =
+      ViewModelProvider(this).get(CarritoViewModel::class.java)
 
-    _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+    _binding = FragmentCarritoBinding.inflate(inflater, container, false)
     val root: View = binding.root
 
-    val textView: TextView = binding.textDashboard
-    dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-      textView.text = it
+    carritoViewModel.text.observe(viewLifecycleOwner, Observer {
+      binding.text.text = it
     })
     return root
   }

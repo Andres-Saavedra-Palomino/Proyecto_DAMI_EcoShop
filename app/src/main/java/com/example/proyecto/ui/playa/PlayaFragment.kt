@@ -1,20 +1,18 @@
-package com.example.proyecto.ui.notifications
+package com.example.proyecto.ui.playa
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.proyecto.R
-import com.example.proyecto.databinding.FragmentNotificationsBinding
+import com.example.proyecto.databinding.FragmentPlayaBinding
 
-class NotificationsFragment : Fragment() {
+class PlayaFragment : Fragment() {
 
-  private lateinit var notificationsViewModel: NotificationsViewModel
-  private var _binding: FragmentNotificationsBinding? = null
+  private lateinit var notificationsViewModel: PlayaViewModel
+  private var _binding: FragmentPlayaBinding? = null
 
   // This property is only valid between onCreateView and
   // onDestroyView.
@@ -26,14 +24,13 @@ class NotificationsFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View? {
     notificationsViewModel =
-      ViewModelProvider(this).get(NotificationsViewModel::class.java)
+      ViewModelProvider(this).get(PlayaViewModel::class.java)
 
-    _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+    _binding = FragmentPlayaBinding.inflate(inflater, container, false)
     val root: View = binding.root
 
-    val textView: TextView = binding.textNotifications
     notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-      textView.text = it
+      binding.text.text = it
     })
     return root
   }

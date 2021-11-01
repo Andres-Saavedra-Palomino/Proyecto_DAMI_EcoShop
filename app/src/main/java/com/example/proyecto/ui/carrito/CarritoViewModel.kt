@@ -1,13 +1,13 @@
-package com.example.proyecto.ui.notifications
+package com.example.proyecto.ui.carrito
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class CarritoViewModel : ViewModel() {
 
   private val _text = MutableLiveData<String>().apply {
-    value = "This is notifications Fragment"
+    value = "Carrito works!"
   }
   val text: LiveData<String> = _text
 }

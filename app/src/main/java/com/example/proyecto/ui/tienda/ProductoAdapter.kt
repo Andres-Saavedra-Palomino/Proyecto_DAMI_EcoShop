@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.home
+package com.example.proyecto.ui.tienda
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">proyecto</string>
-    <string name="title_home">Home</string>
+    <string name="title_tienda">Tienda</string>
     <string name="title_buscar">Buscar</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_playa">Playas</string>
+    <string name="title_carrito">Carrito</string>
+    <string name="title_usuario">Mi Cuenta</string>
 
     <string name="prefs_file">com.example.proyecto.PREFERENCE_FILE_KEY</string>
 </resources>
