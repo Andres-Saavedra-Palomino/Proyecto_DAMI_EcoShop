@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.home
+package com.example.proyecto
 
 import android.content.Context
 import android.content.SharedPreferences
