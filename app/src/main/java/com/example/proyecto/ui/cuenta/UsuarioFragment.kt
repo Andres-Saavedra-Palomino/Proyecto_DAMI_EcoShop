@@ -10,6 +10,11 @@ import androidx.lifecycle.Observer
 import com.example.proyecto.R
 import com.example.proyecto.databinding.FragmentUsuarioBinding
 
+enum class ProviderType {
+  BASIC,
+  GOOGLE
+}
+
 class UsuarioFragment : Fragment() {
 
   private lateinit var usuarioviewModel: UsuarioViewModel
@@ -27,7 +32,6 @@ class UsuarioFragment : Fragment() {
     val root: View = binding.root
 
     usuarioviewModel.text.observe(viewLifecycleOwner,Observer{
-      binding.text.text = it
     })
 
     return root

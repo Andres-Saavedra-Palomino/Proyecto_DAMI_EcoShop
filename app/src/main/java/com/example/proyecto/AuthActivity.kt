@@ -66,6 +66,10 @@ class AuthActivity : AppCompatActivity() {
                     binding.passwordET.text.toString()).addOnCompleteListener { task: Task<AuthResult> ->
 
                     if (task.isSuccessful) {
+                        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+                        prefs.putString("email", task.result?.user?.email ?: "")
+                        prefs.putString("provider", ProviderType.BASIC.toString())
+                        prefs.apply()
                         verMain()
                     } else {
                         verAlerta()
@@ -79,6 +83,10 @@ class AuthActivity : AppCompatActivity() {
                     binding.passwordET.text.toString()).addOnCompleteListener { task: Task<AuthResult> ->
 
                     if (task.isSuccessful) {
+                        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+                        prefs.putString("email", task.result?.user?.email ?: "")
+                        prefs.putString("provider", ProviderType.BASIC.toString())
+                        prefs.apply()
                         verMain()
                     } else {
                         verAlerta()
@@ -128,6 +136,10 @@ class AuthActivity : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful) {
+                            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+                            prefs.putString("email", cuenta.email)
+                            prefs.putString("provider", ProviderType.GOOGLE.toString())
+                            prefs.apply()
                             verMain()
                         } else {
                             verAlerta()

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.proyecto.R
 import com.example.proyecto.databinding.FragmentTiendaBinding
 
 class TiendaFragment : Fragment() {
@@ -53,7 +54,7 @@ class TiendaFragment : Fragment() {
     binding.homeRvPlayas.adapter = ProductoAdapter(temp)
 
 
-    var prefs= PreferenceManager.getDefaultSharedPreferences(requireContext())
+    val prefs = this.requireContext().getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
 
     val email: String = prefs.getString("email", "Email no encontrado").toString()
     val provider: String = prefs.getString("provider","No hay ").toString()
