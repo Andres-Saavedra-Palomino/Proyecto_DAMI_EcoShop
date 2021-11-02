@@ -3,6 +3,7 @@ package com.example.proyecto.ui.tienda
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.proyecto.model.Producto
 
 class TiendaViewModel : ViewModel() {
 

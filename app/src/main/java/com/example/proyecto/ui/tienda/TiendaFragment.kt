@@ -1,16 +1,14 @@
 package com.example.proyecto.ui.tienda
 
-import android.content.Context
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.proyecto.R
 import com.example.proyecto.databinding.FragmentTiendaBinding
+import com.example.proyecto.model.ProductoAdapter
 
 class TiendaFragment : Fragment() {
 

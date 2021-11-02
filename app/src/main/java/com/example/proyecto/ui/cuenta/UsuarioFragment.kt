@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.example.proyecto.AuthActivity
 import com.example.proyecto.R
 import com.example.proyecto.databinding.FragmentUsuarioBinding
+import com.example.proyecto.model.ProductoActivity
 import com.google.firebase.auth.FirebaseAuth
 
 enum class ProviderType {
@@ -45,6 +46,11 @@ class UsuarioFragment : Fragment() {
     prefsEdit.putString("email", email)
     prefsEdit.putString("provider", provider)
     prefsEdit.apply()
+
+    binding.btnUsuarioRegistrarProducto.setOnClickListener {
+      val x = Intent(this.requireActivity(),ProductoActivity::class.java)
+      startActivity(x)
+    }
 
     return root
   }

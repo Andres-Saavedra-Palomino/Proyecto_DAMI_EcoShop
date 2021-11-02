@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.tienda
+package com.example.proyecto.model
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ class ProductoAdapter(private val lista: List<Producto>) :
     val binding = ItemProductoRecyclerviewBinding.bind(itemView)
 
     //Agregar mas campos aqui!
-    fun bind(producto:Producto) {
+    fun bind(producto: Producto) {
       binding.codigoProducto.text= producto.codigo
       binding.nombreProducto.text= producto.nombre
     }
@@ -26,7 +26,7 @@ class ProductoAdapter(private val lista: List<Producto>) :
   }
 
   override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-    val item:Producto = lista[position]
+    val item: Producto = lista[position]
     holder.bind(item)
   }
 
