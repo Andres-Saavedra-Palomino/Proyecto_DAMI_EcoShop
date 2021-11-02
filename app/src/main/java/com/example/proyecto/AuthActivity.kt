@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.example.proyecto.databinding.ActivityAuthBinding
+import com.example.proyecto.model.Usuario
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -52,7 +53,7 @@ class AuthActivity : AppCompatActivity() {
 
         if(email != null && provider != null) {
             binding.authLayout.visibility = View.INVISIBLE
-            verHome(email, ProviderType.valueOf(provider))
+            verMain()
         }
     }
 
@@ -65,7 +66,7 @@ class AuthActivity : AppCompatActivity() {
                     binding.passwordET.text.toString()).addOnCompleteListener { task: Task<AuthResult> ->
 
                     if (task.isSuccessful) {
-                        verHome(task.result?.user?.email ?: "", ProviderType.BASIC)
+                        verMain()
                     } else {
                         verAlerta()
                     }
@@ -78,7 +79,7 @@ class AuthActivity : AppCompatActivity() {
                     binding.passwordET.text.toString()).addOnCompleteListener { task: Task<AuthResult> ->
 
                     if (task.isSuccessful) {
-                        verHome(task.result?.user?.email ?: "", ProviderType.BASIC)
+                        verMain()
                     } else {
                         verAlerta()
                     }
@@ -108,12 +109,9 @@ class AuthActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun verHome(email: String, provider: ProviderType){
-        val homeIntent = Intent(this, HomeActivity::class.java).apply {
-            putExtra("email", email)
-            putExtra("provider", provider.name)
-        }
-        startActivity(homeIntent)
+    private fun verMain(){
+        val mainIntent = Intent(this, MainActivity::class.java)
+        startActivity(mainIntent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -130,7 +128,7 @@ class AuthActivity : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            verHome(cuenta.email, ProviderType.GOOGLE)
+                            verMain()
                         } else {
                             verAlerta()
                         }

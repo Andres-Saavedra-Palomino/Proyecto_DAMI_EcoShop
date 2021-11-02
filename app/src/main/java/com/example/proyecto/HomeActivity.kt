@@ -20,17 +20,22 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bundle = intent.extras
+        /*val bundle = intent.extras
         val email = bundle?.getString("email")
-        val provider = bundle?.getString("provider")
+        val provider = bundle?.getString("provider")*/
+
+
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+
+        val email: String = prefs.getString("email", "Email no encontrado").toString()
+        val provider: String = prefs.getString("provider","No hay ").toString()
+
         setup(email ?: "", provider ?: "")
 
-        //guardado de datos
-
-        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-        prefs.putString("email", email)
-        prefs.putString("provider", provider)
-        prefs.apply()
+        val prefsEdit = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefsEdit.putString("email", "")
+        prefsEdit.putString("provider", "")
+        prefsEdit.apply()
     }
 
     private fun setup(email: String, provider: String) {

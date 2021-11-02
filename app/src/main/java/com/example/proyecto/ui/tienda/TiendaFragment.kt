@@ -1,6 +1,8 @@
 package com.example.proyecto.ui.tienda
 
+import android.content.Context
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,6 +52,15 @@ class TiendaFragment : Fragment() {
     })
     binding.homeRvPlayas.adapter = ProductoAdapter(temp)
 
+
+    var prefs= PreferenceManager.getDefaultSharedPreferences(requireContext())
+
+    val email: String = prefs.getString("email", "Email no encontrado").toString()
+    val provider: String = prefs.getString("provider","No hay ").toString()
+
+    binding.tvEmail.text = email
+    binding.tvProveedor.text = provider
+
     return root
   }
 
@@ -57,4 +68,5 @@ class TiendaFragment : Fragment() {
     super.onDestroyView()
     _binding = null
   }
+
 }
