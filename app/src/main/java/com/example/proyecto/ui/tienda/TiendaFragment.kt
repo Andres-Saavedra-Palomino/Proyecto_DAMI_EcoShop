@@ -53,15 +53,6 @@ class TiendaFragment : Fragment() {
     })
     binding.homeRvPlayas.adapter = ProductoAdapter(temp)
 
-
-    val prefs = this.requireContext().getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
-
-    val email: String = prefs.getString("email", "Email no encontrado").toString()
-    val provider: String = prefs.getString("provider","No hay ").toString()
-
-    binding.tvEmail.text = email
-    binding.tvProveedor.text = provider
-
     return root
   }
 

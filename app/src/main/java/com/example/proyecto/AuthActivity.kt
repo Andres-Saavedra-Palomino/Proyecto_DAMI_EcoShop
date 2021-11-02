@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.example.proyecto.databinding.ActivityAuthBinding
-import com.example.proyecto.model.Usuario
+import com.example.proyecto.ui.cuenta.ProviderType
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -16,8 +16,6 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class AuthActivity : AppCompatActivity() {
 
@@ -57,6 +55,13 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
+    private fun putSession(email: String, provider: ProviderType){
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.putString("provider", provider.toString())
+        prefs.apply()
+    }
+
     private fun setup() {
         title = "Autenticación"
 
@@ -66,10 +71,7 @@ class AuthActivity : AppCompatActivity() {
                     binding.passwordET.text.toString()).addOnCompleteListener { task: Task<AuthResult> ->
 
                     if (task.isSuccessful) {
-                        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-                        prefs.putString("email", task.result?.user?.email ?: "")
-                        prefs.putString("provider", ProviderType.BASIC.toString())
-                        prefs.apply()
+                        putSession(task.result?.user?.email ?: "", ProviderType.BASIC)
                         verMain()
                     } else {
                         verAlerta()
@@ -83,10 +85,7 @@ class AuthActivity : AppCompatActivity() {
                     binding.passwordET.text.toString()).addOnCompleteListener { task: Task<AuthResult> ->
 
                     if (task.isSuccessful) {
-                        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-                        prefs.putString("email", task.result?.user?.email ?: "")
-                        prefs.putString("provider", ProviderType.BASIC.toString())
-                        prefs.apply()
+                        putSession(task.result?.user?.email ?: "", ProviderType.BASIC)
                         verMain()
                     } else {
                         verAlerta()
@@ -136,10 +135,7 @@ class AuthActivity : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-                            prefs.putString("email", cuenta.email)
-                            prefs.putString("provider", ProviderType.GOOGLE.toString())
-                            prefs.apply()
+                            putSession(cuenta.email,ProviderType.GOOGLE)
                             verMain()
                         } else {
                             verAlerta()

@@ -1,6 +1,6 @@
 package com.example.proyecto.model
 
-import com.example.proyecto.ProviderType
+import com.example.proyecto.ui.cuenta.ProviderType
 
 class Usuario {
 
