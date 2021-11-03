@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    tools:context=".model.ProductoActivity">
+
+    <EditText
+        android:id="@+id/et_producto_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="nombre" />
+
+    <EditText
+        android:id="@+id/et_producto_precio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="precio" />
+
+    <EditText
+        android:id="@+id/et_producto_descuento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="descuento" />
+
+    <EditText
+        android:id="@+id/et_producto_stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="stock" />
+
+    <EditText
+        android:id="@+id/et_producto_imagen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="imagen" />
+
+    <EditText
+        android:id="@+id/et_producto_categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="categoria" />
+
+    <Button
+        android:id="@+id/btn_producto_registrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar" />
+
+    <Button
+        android:id="@+id/btn_producto_listar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar" />
+
+    <ListView
+        android:id="@+id/lv_producto_listado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
