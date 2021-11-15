@@ -60,9 +60,10 @@
         android:src="@mipmap/google" />
 
     <TextView
+        android:id="@+id/crearCuentaTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No tienes una cuenta?"
+        android:text="¿No tienes una cuenta?"
         android:textAlignment="center"
         android:textColor="@color/secondary" />
 

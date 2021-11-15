@@ -13,6 +13,7 @@ import com.example.proyecto.R
 import com.example.proyecto.databinding.FragmentUsuarioBinding
 import com.example.proyecto.model.ProductoActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 enum class ProviderType {
   BASIC,
@@ -23,6 +24,7 @@ class UsuarioFragment : Fragment() {
 
   private lateinit var usuarioviewModel: UsuarioViewModel
   private var _binding: FragmentUsuarioBinding? = null
+  private val db = FirebaseFirestore.getInstance()
 
   private val binding get() = _binding!!
 
@@ -59,6 +61,8 @@ class UsuarioFragment : Fragment() {
     binding.emailTV.text = email
     binding.providerTV.text = provider
 
+    getCuenta(email)
+
     binding.cerrarSesionBtn.setOnClickListener() {
       val prefs= this.requireContext().getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
       prefs.clear()
@@ -68,6 +72,15 @@ class UsuarioFragment : Fragment() {
 
       val x = Intent(requireActivity(), AuthActivity::class.java)
       requireActivity().startActivity(x)
+    }
+  }
+
+  private fun getCuenta(email:String) {
+    db.collection("Usuario").document(email).get().addOnSuccessListener {
+      binding.nombresTV.setText(it.get("nombre") as String?)
+      binding.apellidosTV.setText(it.get("apellido") as String?)
+      binding.nroDocumentoTV.setText(it.get("documento") as String?)
+      binding.telefonoTV.setText(it.get("telefono") as String?)
     }
   }
 

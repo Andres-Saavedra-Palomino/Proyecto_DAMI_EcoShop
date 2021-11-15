@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.example.proyecto.databinding.ActivityAuthBinding
 import com.example.proyecto.ui.cuenta.ProviderType
+import com.example.proyecto.ui.cuenta.RegUsuarioActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -16,10 +17,12 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding
+    private val db = FirebaseFirestore.getInstance()
 
     private val GOOGLE_SIGN_IN = 101
 
@@ -63,7 +66,7 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun setup() {
-        title = "Autenticación"
+        title = "Iniciar Sesión"
 
         binding.registrarBtn.setOnClickListener {
             if(binding.emailET.text.isNotEmpty() && binding.passwordET.text.isNotEmpty()) {
@@ -72,7 +75,13 @@ class AuthActivity : AppCompatActivity() {
 
                     if (task.isSuccessful) {
                         putSession(task.result?.user?.email ?: "", ProviderType.BASIC)
-                        verMain()
+                        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+                        val email: String = prefs.getString("email", null).toString()
+
+                        db.collection("Usuario").document(email).set(
+                            hashMapOf("email" to email))
+
+                        verRegistro()
                     } else {
                         verAlerta()
                     }
@@ -119,6 +128,11 @@ class AuthActivity : AppCompatActivity() {
     private fun verMain(){
         val mainIntent = Intent(this, MainActivity::class.java)
         startActivity(mainIntent)
+    }
+
+    private fun verRegistro(){
+        val x = Intent(this, RegUsuarioActivity::class.java)
+        startActivity(x)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

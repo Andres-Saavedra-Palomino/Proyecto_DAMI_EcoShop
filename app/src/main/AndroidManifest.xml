@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
         <activity
+            android:name=".ui.cuenta.RegUsuarioActivity"
+            android:exported="true" />
+        <activity
             android:name=".model.ProductoActivity"
             android:exported="true" />
         <activity
