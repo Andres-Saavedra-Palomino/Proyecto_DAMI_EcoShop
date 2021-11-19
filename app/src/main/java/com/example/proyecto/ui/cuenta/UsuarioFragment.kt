@@ -81,6 +81,7 @@ class UsuarioFragment : Fragment() {
       binding.apellidosTV.setText(it.get("apellido") as String?)
       binding.nroDocumentoTV.setText(it.get("documento") as String?)
       binding.telefonoTV.setText(it.get("telefono") as String?)
+      binding.fechaNacTV.setText(it.get("fecha_nac") as String?)
     }
   }
 

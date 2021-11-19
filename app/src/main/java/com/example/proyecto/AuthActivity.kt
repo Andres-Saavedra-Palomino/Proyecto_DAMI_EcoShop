@@ -149,8 +149,25 @@ class AuthActivity : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            putSession(cuenta.email,ProviderType.GOOGLE)
-                            verMain()
+                            putSession(cuenta.email, ProviderType.GOOGLE)
+                            val prefs = getSharedPreferences(
+                                getString(R.string.prefs_file),
+                                Context.MODE_PRIVATE
+                            )
+                            val email: String = prefs.getString("email", null).toString()
+
+                            db.collection("Usuario").document(email).get().addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    if (task.result.exists()) {
+                                        verMain()
+                                    } else {
+                                        db.collection("Usuario").document(email).set(
+                                            hashMapOf("email" to email))
+
+                                        verRegistro()
+                                    }
+                                }
+                            }
                         } else {
                             verAlerta()
                         }
