@@ -6,8 +6,9 @@ import androidx.lifecycle.ViewModel
 
 class PlayaViewModel : ViewModel() {
 
-  private val _text = MutableLiveData<String>().apply {
-    value = "Playa works!"
-  }
-  val text: LiveData<String> = _text
+    private val _text = MutableLiveData<String>().apply {
+        value = "Catalogo"
+    }
+    val text: LiveData<String> = _text
+
 }

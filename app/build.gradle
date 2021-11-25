@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 
     //firebase
     id 'com.google.gms.google-services'
@@ -58,10 +60,16 @@ dependencies {
 
     //FireStore
     implementation 'com.google.firebase:firebase-firestore-ktx:23.0.4'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
     //Auth
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.2'
+
     //google
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }

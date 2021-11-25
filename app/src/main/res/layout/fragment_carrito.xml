@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.playa.PlayaFragment"
+    tools:context=".ui.carrito.CarritoFragment"
     android:orientation="vertical">
 
     <TextView
