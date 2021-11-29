@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.proyecto.R
 import com.example.proyecto.databinding.FragmentTiendaBinding
 import com.example.proyecto.model.ProductoAdapter
+import com.squareup.picasso.Picasso
 
 class TiendaFragment : Fragment() {
 
@@ -29,6 +31,11 @@ class TiendaFragment : Fragment() {
 
     _binding = FragmentTiendaBinding.inflate(inflater, container, false)
     val root: View = binding.root
+
+    Picasso.get()
+      .load("https://firebasestorage.googleapis.com/v0/b/navagioecoshop.appspot.com/o/NavagioPlaya.jpg?alt=media&token=ed8668ab-9739-46bf-b47f-3eb45c80eb1f")
+      .error(R.drawable.ic_baseline_error_outline_24)
+      .into(binding.NavagioPlaya)
 
     homeViewModel.text.observe(viewLifecycleOwner, Observer {
       binding.textHome.text = it

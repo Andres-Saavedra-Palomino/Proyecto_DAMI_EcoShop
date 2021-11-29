@@ -14,21 +14,30 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:paddingHorizontal="8dp"
         android:textAlignment="center"
         android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/Navagio_Playa"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginBottom="10dp" />
 
     <TextView
         android:id="@+id/lista_descripcion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_rv_playas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
         android:paddingVertical="10dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" >
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
     </androidx.recyclerview.widget.RecyclerView>
 

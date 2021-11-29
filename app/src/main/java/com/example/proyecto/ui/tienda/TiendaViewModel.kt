@@ -1,31 +1,39 @@
 package com.example.proyecto.ui.tienda
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.proyecto.model.Producto
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class TiendaViewModel : ViewModel() {
 
+  val db = Firebase.firestore;
+
   private val _text = MutableLiveData<String>().apply {
-    value = "This is home Fragment"
+    value = "Navagio's Eco Shop"
   }
 
   private val _descripcion_1 = MutableLiveData<String>().apply {
     value = "Productos en Oferta!"
   }
-  var p1 = Producto("0","producto 0")
-  var p2 = Producto("1","producto 1")
-  var p3 = Producto("2","producto 2")
-  var p4 = Producto("3","producto 3")
-  var p5 = Producto("4","producto 4")
-  var temp = listOf<Producto>(p1,p2,p3,p4,p5)
 
   private val _lista = MutableLiveData<List<Producto>>().apply {
-    value = temp
+    var temp = arrayListOf<Producto>()
+    db.collection("/Producto")
+      .get()
+      .addOnSuccessListener { documents ->
+        temp.addAll(documents.toObjects(Producto::class.java))
+        value = temp.filter { p -> p.descuento.toInt() > 0 }
+      }
+      .addOnFailureListener { exception ->
+        Log.w("TiendaFragment", "Error getting documents: ", exception)
+      }
   }
 
-  val lista:LiveData<List<Producto>> = _lista
+  val lista: LiveData<List<Producto>> = _lista
   val text: LiveData<String> = _text
   val descripcion: LiveData<String> = _descripcion_1
 

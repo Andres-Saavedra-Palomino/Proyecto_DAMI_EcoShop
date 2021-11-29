@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto.R
 import com.example.proyecto.databinding.ItemProductoRecyclerviewBinding
+import com.squareup.picasso.Picasso
 
 class ProductoAdapter(private val lista: List<Producto>) :
   RecyclerView.Adapter<ProductoAdapter.ItemHolder>() {
@@ -14,8 +15,13 @@ class ProductoAdapter(private val lista: List<Producto>) :
 
     //Agregar mas campos aqui!
     fun bind(producto: Producto) {
-      binding.codigoProducto.text= producto.codigo
-      binding.nombreProducto.text= producto.nombre
+      binding.codigoProducto.text= producto.categoria
+      binding.nombreProducto.text= producto.descripcion
+      binding.descuentoProducto.text= "S/ ${(producto.precio.toString().toDouble() - producto.descuento.toString().toDouble())}"
+      Picasso.get()
+        .load(producto.imagen)
+        .error(R.drawable.ic_baseline_error_outline_24)
+        .into(binding.imagenProducto)
     }
   }
 
