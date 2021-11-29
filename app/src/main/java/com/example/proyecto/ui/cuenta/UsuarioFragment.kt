@@ -82,6 +82,12 @@ class UsuarioFragment : Fragment() {
       binding.nroDocumentoTV.setText(it.get("documento") as String?)
       binding.telefonoTV.setText(it.get("telefono") as String?)
       binding.fechaNacTV.setText(it.get("fecha_nac") as String?)
+      val idrol: String = it.get("id_rol") as String
+
+      if (idrol == "2") {
+        binding.btnUsuarioRegistrarProducto.isClickable=false
+        binding.btnUsuarioRegistrarProducto.visibility=View.INVISIBLE
+      }
     }
   }
 

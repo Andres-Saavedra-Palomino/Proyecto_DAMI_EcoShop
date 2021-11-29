@@ -47,7 +47,8 @@ class RegUsuarioActivity : AppCompatActivity() {
                 "apellido" to binding.apellidoET.text.toString(),
                 "telefono" to binding.telefonoET.text.toString(),
                 "fecha_regis" to Calendar.getInstance().time,
-                "fecha_nac" to binding.fchNacET.text.toString()
+                "fecha_nac" to binding.fchNacET.text.toString(),
+                "id_rol" to "2"
                 )
             )
             verMain()
