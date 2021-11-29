@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="130dp"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="10dp"
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:id="@+id/imagen_producto"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
         android:src="@color/teal_700" />
 
     <TextView
         android:id="@+id/codigo_producto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="codigo" />
 
     <TextView
         android:id="@+id/nombre_producto"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="#303030"
+        android:paddingHorizontal="8dp"
+        android:text="producto"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/descuento_producto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="playa" />
+        android:background="#303030"
+        android:paddingHorizontal="8dp"
+        android:text="S/ 00.00"
+        android:textAlignment="textEnd"
+        android:textColor="#ff0000"
+        android:textStyle="bold" />
 
 </LinearLayout>
