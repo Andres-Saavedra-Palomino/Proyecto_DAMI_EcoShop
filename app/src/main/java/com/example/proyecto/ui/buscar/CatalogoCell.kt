@@ -1,6 +1,7 @@
-package com.example.proyecto.ui.playa
+package com.example.proyecto.ui.buscar
 
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -26,5 +27,9 @@ class CatalogoCell(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val tvPrecio:TextView=itemView.findViewById(R.id.tvPrecio)
         tvPrecio.text=catalogo.precio
+
+        val btnCarrito:Button=itemView.findViewById(R.id.btnCarrito)
+        btnCarrito.setOnClickListener { setOf( R.id.navigation_carrito) }
+
     }
 }

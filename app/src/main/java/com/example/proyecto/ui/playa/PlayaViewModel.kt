@@ -5,10 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class PlayaViewModel : ViewModel() {
-
     private val _text = MutableLiveData<String>().apply {
-        value = "Catalogo"
+        value = "Playa"
     }
     val text: LiveData<String> = _text
-
 }

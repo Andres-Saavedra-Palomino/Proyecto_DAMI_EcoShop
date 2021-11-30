@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.playa
+package com.example.proyecto.ui.buscar
 
 import android.content.Context
 import android.view.LayoutInflater
