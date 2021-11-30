@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.tienda.TiendaFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_home"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:paddingHorizontal="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.tienda.TiendaFragment">
 
-    <ImageView
-        android:id="@+id/Navagio_Playa"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginBottom="10dp" />
+        <TextView
+            android:id="@+id/text_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/lista_descripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="8dp" />
+        <ImageView
+            android:id="@+id/Navagio_Playa"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_marginBottom="10dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_rv_playas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="10dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+        <TextView
+            android:id="@+id/lista_descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp" />
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_rv_playas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
-</LinearLayout>
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</ScrollView>
