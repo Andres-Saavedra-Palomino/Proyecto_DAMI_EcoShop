@@ -10,4 +10,10 @@ class CarritoViewModel : ViewModel() {
     value = "Carrito works!"
   }
   val text: LiveData<String> = _text
+
+  private val _lista= MutableLiveData<List<Carrito>>().apply {
+    value= listOf(Carrito("","R","p","3","3"),Carrito("","P",
+    "q","4","5"))
+  }
+  val lista:LiveData<List<Carrito>> = _lista
 }

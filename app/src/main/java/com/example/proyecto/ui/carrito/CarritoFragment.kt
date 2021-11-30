@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.proyecto.R
 import com.example.proyecto.databinding.FragmentCarritoBinding
+import com.squareup.picasso.Picasso
 
 class CarritoFragment : Fragment() {
 
@@ -30,8 +32,13 @@ class CarritoFragment : Fragment() {
     _binding = FragmentCarritoBinding.inflate(inflater, container, false)
     val root: View = binding.root
 
-    carritoViewModel.text.observe(viewLifecycleOwner, Observer {
-      binding.text.text = it
+    var lista= listOf(Carrito("","R","p","3","3"),Carrito("","P",
+      "q","4","5"))
+
+    binding.rCarrito.adapter=CarritoAdapter(lista, object: Quitar {
+      override fun onClick(posicion: Int,v: View) {
+        lista.drop(posicion)
+      }
     })
     return root
   }
